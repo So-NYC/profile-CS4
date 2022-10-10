@@ -95,37 +95,6 @@ set data_jitter "100";
 set useragent "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko";
 
 ################################################
-## SSL CERTIFICATE
-################################################
-## Description:
-##    Signed or self-signed TLS/SSL Certifcate used for C2 communication using an HTTPS listener
-## Defaults:
-##    All certificate values are blank
-## Guidelines:
-##    - Best Option - Use a certifcate signed by a trusted certificate authority
-##    - Ok Option - Create your own self signed certificate
-##    - Option - Set self-signed certificate values
-https-certificate {
-    
-    ## Option 1) Trusted and Signed Certificate
-    ## Use keytool to create a Java Keystore file. 
-    ## Refer to https://www.cobaltstrike.com/help-malleable-c2#validssl
-    ## or https://github.com/killswitch-GUI/CobaltStrike-ToolKit/blob/master/HTTPsC2DoneRight.sh
-   
-    ## Option 2) Create your own Self-Signed Certificate
-    ## Use keytool to import your own self signed certificates
-
-    #set keystore "/pathtokeystore";
-    #set password "password";
-
-    ## Option 3) Cobalt Strike Self-Signed Certificate
-    set C   "US";
-    set CN  "jquery.com";
-    set O   "jQuery";
-    set OU  "Certificate Authority";
-    set validity "365";
-}
-################################################
 ## Task and Proxy Max Size
 ################################################
 ## Description:
@@ -714,3 +683,15 @@ http-post {
 ##	client {
 ##		parameter "bar" "blah";
  
+
+################################################
+## SSL CERTIFICATE
+################################################
+## Description:
+##    Signed or self-signed TLS/SSL Certifcate used for C2 communication using an HTTPS listener
+## Defaults:
+##    All certificate values are blank
+## Guidelines:
+##    - Best Option - Use a certifcate signed by a trusted certificate authority
+##    - Ok Option - Create your own self signed certificate
+##    - Option - Set self-signed certificate values
